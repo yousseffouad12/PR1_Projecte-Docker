@@ -22,7 +22,6 @@ No he utilitzat la imatge bàsica d'Apache. He creat un `Dockerfile` propi basat
 ### 3. Configuració de Xarxa i Seguretat
 *   **Virtual Hosts:** He configurat Apache per respondre a dos dominis diferents: `frontend.local` (web) i `api.local` (JSON).
 *   **HTTPS Forçat:** He configurat una redirecció 301 en Apache perquè tot el tràfic HTTP (port 80) vagi obligatòriament a HTTPS (port 443).
-*   **Aïllament:** He creat dues xarxes (`frontend-network` i `backend-network`) perquè la base de dades no sigui accessible directament des d'internet, només des del contenidor Apache.
 
 ### 4. Persistència de Dades
 He configurat **volums de Docker** per a MySQL i Redis. D'aquesta manera, encara que s'apaguin o s'esborrin els contenidors, la informació (usuaris i articles) no es perd.
