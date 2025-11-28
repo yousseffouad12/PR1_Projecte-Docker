@@ -24,7 +24,6 @@ projecte-final/
 ├── 📂 logs/                  # Logs en format JSON
 ├── 📄 .env                   # Variables d'entorn i contrasenyes
 ├── 📄 docker-compose.yml     # Orquestració dels 4 serveis
-└── 📄 README.md              # Documentació del projecte
 ```
 
 ---
@@ -48,10 +47,10 @@ No he utilitzat la imatge bàsica d'Apache. He creat un `Dockerfile` propi basat
 
 ### 3. Configuració de Xarxa i Seguretat
 *   **Virtual Hosts:** He configurat Apache per respondre a dos dominis diferents: `frontend.local` (web) i `api.local` (JSON).
-*   **HTTPS Forçat:** He configurat una redirecció 301 en Apache perquè tot el tràfic HTTP (port 80) vagi obligatòriament a HTTPS (port 443).
+*   **HTTPS:** He configurat una redirecció 301 en Apache perquè tot el tràfic HTTP (port 80) vagi si o si a HTTPS (port 443).
 
 ### 4. Persistència de Dades
-He configurat **volums de Docker** per a MySQL i Redis. D'aquesta manera, encara que s'apaguin o s'esborrin els contenidors, la informació (usuaris i articles) no es perd.
+He configurat **volums de Docker** per a MySQL i Redis. D'aquesta manera, encara que s'apaguin o s'esborrin els contenidors, la informació usuaris i articles no es perdi.
 
 ---
 
@@ -76,19 +75,19 @@ Passos per provar el projecte en un entorn local:
 
 ---
 
-## Evidències del Funcionament
+## Funcionament
 
-### 1. Estat dels Contenidors
+### 1. status dels Contenidors
 Es pot veure que tots els serveis estan "Up" i la base de dades té el healthcheck correcte.
 ![Estat Terminal](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/21691b53c3dca3610c3de08411f82c5003bcd771/captura_ps.png?raw=true)
 
-### 2. Funcionament Web (MySQL + Redis + HTTPS)
+### 2. Funcionament (MySQL + Redis + HTTPS)
 La web mostra les dades de la base de dades i el comptador de visites de Redis funcionant.
 ![Web Browser1](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/21691b53c3dca3610c3de08411f82c5003bcd771/pag1.png?raw=true)
 ![Web Browser2](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/21691b53c3dca3610c3de08411f82c5003bcd771/pag2.png?raw=true)
 ![Web Browser3](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/21691b53c3dca3610c3de08411f82c5003bcd771/pag3.png?raw=true)
 
-### 3. Prova de Redirecció 301
+### 3. Prova de Redirecció HHTPS
 Demostració amb CURL de que el servidor força l'ús de HTTPS.
 ![CURL Redirect](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/21691b53c3dca3610c3de08411f82c5003bcd771/curl.png?raw=true)
 
@@ -96,7 +95,7 @@ Demostració amb CURL de que el servidor força l'ús de HTTPS.
 Accés correcte a la base de dades mostrant les taules creades.
 ![phpMyAdmin](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/7d93dd9f4bdb91a86631ec1d77c22b0b24ee52d5/myadmin.png?raw=true)
 
-### 5. API REST (JSON)
+### 5. API (JSON)
 Resposta de l'API mostrant les dades en format JSON correctament.
 ![API JSON](https://github.com/yousseffouad12/PR1_Projecte-Docker/blob/7d93dd9f4bdb91a86631ec1d77c22b0b24ee52d5/json.png?raw=true)
 
@@ -112,8 +111,6 @@ Les credencials estan definides al fitxer `.env`:
 
 *   **MySQL User:** `youssef`
 *   **MySQL Pass:** `P@ssw0rd`
-*   **MySQL Root:** `supersecretroot`
 
 ---
-*Projecte realitzat per Youssef.*
-```
+*Projecte realitzat per Yousseffouadmabrouki.*
