@@ -1,6 +1,6 @@
-# Projecte Final ASIX: Arquitectura Web amb Docker
+# Projecte Docker ASIX2
 
-Aquest repositori conté el projecte final del mòdul, on he implementat una arquitectura web completa simulant un entorn real de producció utilitzant contenidors Docker.
+Aquest repositori te el projecte final del docker on he implementat una arquitectura web completa simulant un entorn real de producció utilitzant contenidors Docker.
 
 ---
 
@@ -27,10 +27,9 @@ projecte-final/
 ```
 
 ---
+## Com s'ha portat el projecte?
 
-## Com ho he fet?
-
-Per realitzar aquest projecte he seguit els següents passos tècnics:
+Per realitzar aquest projecte he seguit els següents passos:
 
 ### 1. Orquestració amb Docker Compose
 He utilitzat un fitxer `docker-compose.yml` per definir i aixecar **4 serveis** simultanis:
@@ -40,7 +39,7 @@ He utilitzat un fitxer `docker-compose.yml` per definir i aixecar **4 serveis** 
 *   **Gestió:** phpMyAdmin.
 
 ### 2. Imatge Personalitzada (Dockerfile)
-No he utilitzat la imatge bàsica d'Apache. He creat un `Dockerfile` propi basat en Alpine Linux per:
+He creat un `Dockerfile` propi basat en Alpine Linux per:
 *   Instalar les llibreries de **PHP 8.3** necessàries.
 *   Generar automàticament certificats SSL amb **OpenSSL**.
 *   Configurar els mòduls necessaris per a la connexió amb MySQL i Redis.
