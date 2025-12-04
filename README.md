@@ -10,35 +10,31 @@ Aquesta és l'estructura de fitxers que he creat per mantenir el projecte ordena
 
 ```text
 projecte-final/
-├── 📂 apache/                # Configuració del Frontend
-│   ├── 📄 Dockerfile         # Imatge personalitzada (Alpine + PHP)
+├── 📂 apache/                
+│   ├── 📄 Dockerfile         
 │   ├── 📂 conf/
-│   │   ├── 📄 httpd.conf     # Configuració principal Apache
-│   │   └── 📂 vhosts/        # Virtual Hosts (frontend.local i api.local)
-│   └── 📂 sites/             # Codi font (PHP/HTML)
-│       ├── 📂 frontend/      # Web principal
-│       └── 📂 api/           # API REST
+│   │   ├── 📄 httpd.conf     
+│   │   └── 📂 vhosts/        
+│   └── 📂 sites/             
+│       ├── 📂 frontend/      
+│       └── 📂 api/           
 ├── 📂 mysql/
 │   └── 📂 init/
-│       └── 📄 01-schema.sql  # Script SQL d'inicialització
-├── 📂 logs/                  # Logs en format JSON
-├── 📄 .env                   # Variables d'entorn i contrasenyes
-├── 📄 docker-compose.yml     # Orquestració dels 4 serveis
+│       └── 📄 01-schema.sql 
+├── 📂 logs/                  
+├── 📄 .env                   
+├── 📄 docker-compose.yml    
 ```
 
 ---
-## Com s'ha portat el projecte?
-
-Per realitzar aquest projecte he seguit els següents passos:
-
 ### 1. Orquestració amb Docker Compose
-He utilitzat un fitxer `docker-compose.yml` per definir i aixecar **4 serveis** simultanis:
+He utilitzat un fitxer `docker-compose.yml` per definir i aixecar **4 serveis**:
 *   **Frontend:** Apache + PHP.
 *   **Backend:** MySQL 8.0.
 *   **Cache:** Redis.
 *   **Gestió:** phpMyAdmin.
 
-### 2. Imatge Personalitzada (Dockerfile)
+### 2.(Dockerfile)
 He creat un `Dockerfile` propi basat en Alpine Linux per:
 *   Instalar les llibreries de **PHP 8.3** necessàries.
 *   Generar automàticament certificats SSL amb **OpenSSL**.
@@ -46,7 +42,7 @@ He creat un `Dockerfile` propi basat en Alpine Linux per:
 
 ### 3. Configuració de Xarxa i Seguretat
 *   **Virtual Hosts:** He configurat Apache per respondre a dos dominis diferents: `frontend.local` (web) i `api.local` (JSON).
-*   **HTTPS:** He configurat una redirecció 301 en Apache perquè tot el tràfic HTTP (port 80) vagi si o si a HTTPS (port 443).
+*   **HTTPS:** He configurat una redirecció en Apache perquè tot el tràfic HTTP (port 80) vagi si o si a HTTPS (port 443).
 
 ### 4. Persistència de Dades
 He configurat **volums de Docker** per a MySQL i Redis. D'aquesta manera, encara que s'apaguin o s'esborrin els contenidors, la informació usuaris i articles no es perdi.
